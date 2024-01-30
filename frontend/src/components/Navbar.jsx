@@ -1,7 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 const Navbar = () => {
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -10,7 +12,7 @@ const Navbar = () => {
             class="navbar-brand text-white text-decoration-none fw-bold fs-3 px-3"
             to="/"
           >
-            myApp
+            MernApp
           </Link>
           <button
             class="navbar-toggler"
@@ -40,11 +42,23 @@ const Navbar = () => {
                   Contact
                 </NavLink>
               </li>
-              <li class="nav-item me-2">
-                <NavLink className="nav-link text-white" to="/login">
-                  Login/Signup
-                </NavLink>
-              </li>
+              {isLoggedIn ? (
+                <>
+                  <li class="nav-item me-2">
+                    <NavLink className="nav-link text-white" to="/logout">
+                      Logout
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li class="nav-item me-2">
+                    <NavLink className="nav-link text-white" to="/login">
+                      Login/Signup
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

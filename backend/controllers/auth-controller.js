@@ -39,6 +39,7 @@ const register = async (req, res) => {
       userid: userCreated._id.toString(),
     });
   } catch (error) {
+    console.error(error);
     res.status(404).send({ msg: "Error 404" });
   }
 };

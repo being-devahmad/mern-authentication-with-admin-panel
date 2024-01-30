@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import Signup from "./Pages/Signup";
+import Logout from "./Pages/Logout";
 
 const App = () => (
   <>
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/contact" element={<Contact />} />
       <Route path="/about" element={<About />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/logout" element={<Logout />} />
     </Routes>
   </>
 );
