@@ -70,4 +70,14 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { home, register, login };
+// user logic
+const user = () => {
+  try {
+    const userData = req.user
+    console.log(userData);
+  } catch (error) {
+    res.status(404).send({ msg: "Error 404" });
+  }
+}
+
+module.exports = { home, register, login, user };
